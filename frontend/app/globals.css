@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f5;
+  --foreground: #1c261e;
+  --card: #ffffff;
+  --card-foreground: #1c261e;
+  --primary: #2d6a4f;
+  --primary-foreground: #ffffff;
+  --secondary: #e8f0ec;
+  --secondary-foreground: #1b4332;
+  --muted: #e5ece7;
+  --muted-foreground: #526658;
+  --accent: #52b788;
+  --accent-foreground: #092014;
+  --border: #dce5df;
+  --ring: #2d6a4f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1410;
+    --foreground: #eef4f0;
+    --card: #131d16;
+    --card-foreground: #eef4f0;
+    --primary: #40916c;
+    --primary-foreground: #06150d;
+    --secondary: #1a281f;
+    --secondary-foreground: #d0e5d8;
+    --muted: #1e2e24;
+    --muted-foreground: #8aa393;
+    --accent: #52b788;
+    --accent-foreground: #06150d;
+    --border: #233529;
+    --ring: #52b788;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom subtle pulse for calming offline breathing */
+@keyframes nature-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.animate-breathe {
+  animation: nature-breathe 7s ease-in-out infinite;
+}
+
+/* Accessibility: Respect user reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
